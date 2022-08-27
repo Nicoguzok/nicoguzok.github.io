@@ -1,15 +1,24 @@
-const menuToggle = document.querySelector('.nav-toggle');
-const navigation = document.querySelector('.nav');
+const navMenu = document.getElementById('nav-menu');
+const navToggle = document.getElementById('nav-toggle');
+const navClose = document.getElementById('nav-close');
 
-menuToggle.onclick = () => {
-    navigation.classList.toggle('open');
-}
+if(navToggle) {
+    navToggle.addEventListener('click', () =>{
+        navMenu.classList.add('show-menu')
+    });
+};
 
-const listItems = document.querySelectorAll('.list-item');
+if(navClose) {
+    navClose.addEventListener('click', () =>{
+        navMenu.classList.remove('show-menu')
+    });
+};
 
-listItems.forEach(item => {
-    item.onclick = () => {
-        listItems.forEach(item => item.classList.remove('active'));
-        item.classList.add('active');
-    }
-})
+const navLink = document.querySelectorAll('.nav__link');
+
+function linkAction(){
+    const navMenu = document.getElementById('nav-menu')
+    navMenu.classList.remove('show-menu')
+};
+
+navLink.forEach(n => n.addEventListener('click', linkAction));

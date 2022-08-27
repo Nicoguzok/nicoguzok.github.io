@@ -1,88 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
     <link rel="stylesheet" href="index.css">
-    <title>Git Pages</title>
-    <script src="https://kit.fontawesome.com/0d53a6ada4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script defer src="index.js"></script>
 </head>
 <body>
-    <header>
-        <nav class="nav">
-            <div class="nav-toggle"></div>
-            <ul class="list">
-                <li class="list-item active" style="--color:#f44336">
-                    <a href="#home">
-                        <span class="icon"><i class="fa-solid fa-house"></i></span>
-                        <span class="text">Home</span>
-                    </a>
-                </li>
-                <li class="list-item" style="--color:#ffa117">
-                    <a href="#habilidades">
-                        <span class="icon"><i class="fa-solid fa-user-gear"></i></span>
-                        <span class="text">Habilidades</span>
-                    </a>
-                </li>
-                <li class="list-item" style="--color:#2196f3">
-                    <a href="#proyectos">
-                        <span class="icon"><i class="fa-solid fa-folder-open"></i></span>
-                        <span class="text">Proyectos</span>
-                    </a>
-                </li>
-                <li class="list-item" style="--color:#0fc70f">
-                    <a href="#contacto">
-                        <span class="icon"><i class="fa-solid fa-at"></i></span>
-                        <span class="text">Contacto</span>
-                    </a>
-                </li>
-            </ul>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Nico</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list grid">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link">
+                            <i class="uil uil-estate nav__icon"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">
+                            <i class="uil uil-user nav__icon"></i> About
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">
+                            <i class="uil uil-file-alt nav__icon"></i> Skills
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#services" class="nav__link">
+                            <i class="uil uil-briefcase-alt nav__icon"></i> Services
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#portfolio" class="nav__link">
+                            <i class="uil uil-scenery nav__icon"></i> Portfolio
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contactme" class="nav__link">
+                            <i class="uil uil-message nav__icon"></i> Contactme
+                        </a>
+                    </li>
+                </ul>
+                <i class="uil uil-times nav__close" id="nav-close"></i>
+            </div>
+            <div class="nav__btns">
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="uil uil-apps"></i>
+                </div>
+            </div>
         </nav>
     </header>
-    <main id="home">
-        <h1>Hola, mi nombre es Nico</h1>
-        <p>Hace un año empece a estudiar programacion, este año decidi profundizar todo lo que aprendi
-            con ideas y proyectos que mientras estudiaba se me iban ocurriendo. Si estan interesados pueden ver
-            Seccion de proyectos, tambien si quieren darme consejos o compartir ideas le dejo mi Redes Sociales.
-            Espero que le guste mi pagina.
-        </p>
+    <main class="main">
     </main>
-    <section id="habilidades" class="skill-section">
-        <div class="container">
-            <h3 class="skill"><i class="fa-brands fa-html5"></i>HTML5</h3>
-            <h3 class="skill"><i class="fa-brands fa-css3-alt"></i>CSS3</h3>
-            <h3 class="skill"><i class="fa-brands fa-js"></i>Java Script</h3>
-            <h3 class="skill"><i class="fa-brands fa-python"></i>Python</h3>
-            <h3 class="skill"><i class="fa-brands fa-git-alt"></i>Git</h3>
-            <h3 class="skill"><i class="fa-brands fa-react"></i>React</h3>
-            <h3 class="skill"></h3>
-            <h3 class="skill"></h3>
-        </div>
-    </section>
-    <section id="proyectos" class="project">
-        <h2>Proyectos</h2>
-        <div class="container-2">
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-        </div>
-    </section>
-    <section id="contacto" class="contact">
-        <div class="container-contact">
-            <ul class="social_icons">
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="https://twitter.com/Nicolas65796329" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="https://github.com/Nicoguzok" target="_blank"><i class="fa-brands fa-github"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/nicolas-guzm%C3%A1n-a8178223b" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-            </ul>
-        </div>
-    </section>
-    <script src="index.js"></script>
 </body>
 </html>
