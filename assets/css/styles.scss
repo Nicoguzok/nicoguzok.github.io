@@ -294,6 +294,57 @@ main {
     }
 }
 
+#fact {
+    padding: 50px 30px;
+    background-color: #ffffff;
+
+    .sub-heading {
+        color: #000000;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .divider {
+        width: 80px;
+        height: 4px;
+        background-color: var(--bgColor);
+        border-radius: 3px;
+    }
+
+    p {
+        color: var(--textColor);
+        font-size: 15px;
+        letter-spacing: .4px;
+        font-weight: 400;
+        margin-top: 15px;
+    }
+
+    .fact-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 30px;
+        margin-top: 50px;
+
+        .fact-box {
+            i {
+                color: var(--bgColor);
+                font-size: 40px;
+            }
+
+            strong {
+                font-size: 30px;
+                margin-left: 5px;
+                font-weight: 600;
+            }
+
+            p {
+                font-weight: 500;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 1050px) {
     header {
         left: -300px;
@@ -340,7 +391,6 @@ main {
         p {
             font-size: 14px;
             letter-spacing: 0px;
-            text-align: justify;
         }
 
         .about-col {

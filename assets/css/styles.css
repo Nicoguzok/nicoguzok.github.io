@@ -247,6 +247,48 @@ main {
   font-size: 15px;
 }
 
+#fact {
+  padding: 50px 30px;
+  background-color: #ffffff;
+}
+#fact .sub-heading {
+  color: #000000;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+#fact .divider {
+  width: 80px;
+  height: 4px;
+  background-color: var(--bgColor);
+  border-radius: 3px;
+}
+#fact p {
+  color: var(--textColor);
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  font-weight: 400;
+  margin-top: 15px;
+}
+#fact .fact-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  margin-top: 50px;
+}
+#fact .fact-row .fact-box i {
+  color: var(--bgColor);
+  font-size: 40px;
+}
+#fact .fact-row .fact-box strong {
+  font-size: 30px;
+  margin-left: 5px;
+  font-weight: 600;
+}
+#fact .fact-row .fact-box p {
+  font-weight: 500;
+  font-size: 16px;
+}
+
 @media only screen and (max-width: 1050px) {
   header {
     left: -300px;
@@ -283,7 +325,6 @@ main {
   #about p {
     font-size: 14px;
     letter-spacing: 0px;
-    text-align: justify;
   }
   #about .about-col {
     flex-direction: column;
