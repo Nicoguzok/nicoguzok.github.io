@@ -1,14 +1,45 @@
-let MenuBtn = document.getElementById('MenuBtn');
+/*=============== SERVICES MODAL ===============*/
 
-MenuBtn.addEventListener('click', function(e) {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    this.classList.toggle('fa-xmark')
-});
+const modal = document.querySelectorAll('.services__modal'),
+      modalButton = document.querySelectorAll('.services__button'),
+      modalClose = document.querySelectorAll('.services__modal-close')
 
-let typed = new Typed('.auto-input', {
-    strings: ['Front-End', 'Back-End', 'Full Stack'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 2000,
+let activeModal = (modalClick) => {
+    modal[modalClick].classList.add('active-modal')
+}
+
+modalButton.forEach((modalButton, i) => {
+    modalButton.addEventListener('click', () => {
+        activeModal(i)
+    })
+})
+
+modalClose.forEach((modalClose) => {
+    modalClose.addEventListener('click', () => {
+        modal.forEach((modalRemove) => {
+            modalRemove.classList.remove('active-modal')
+        })
+    })
+})
+/*=============== SWIPER TESTIMONIAL ===============*/
+
+const swiper = new Swiper('.swiper', {
     loop: true,
-});
+    spaceBetween: 32,
+    grabCursor: true,
+    pagination: {
+        el: '.swiper-pagination',
+        dynamicBullets: true,
+        clickable: true,
+    },
+})
+
+/*=============== SHOW SCROLL UP ===============*/ 
+
+const scrollUp = () => {
+    const scrollUp = document.getElementById('scroll-up')
+    this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
+                   : scrollUp.classList.remove('show-scroll')
+}
+
+window.addEventListener('scroll', scrollUp)
