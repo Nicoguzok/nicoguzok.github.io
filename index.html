@@ -1,662 +1,631 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Nico Guzmán | Dev & Cybersec Portfolio</title>
-
-   <!--=============== FAVICON ===============-->
-   <link rel="shortcut icon" href="assets/img/icon.ico" type="image/x-icon">
-
-   <!--=============== REMIXICONS ===============-->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
-
-   <!--=============== CSS INTEGRADO Y OPTIMIZADO ===============-->
-   <style>
-      :root {
-         --bg-color: #0b0f19;
-         --container-color: #131a26;
-         --first-color: #00ff66;
-         --second-color: #00d2ff;
-         --text-color: #e2e8f0;
-         --text-muted: #94a3b8;
-         --border-color: #1e293b;
-         --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      * {
-         margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-         scroll-behavior: smooth;
-      }
-
-      body {
-         background-color: var(--bg-color);
-         color: var(--text-color);
-         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-         line-height: 1.6;
-         overflow-x: hidden;
-      }
-
-      a {
-         text-decoration: none;
-         color: inherit;
-      }
-
-      ul {
-         list-style: none;
-      }
-
-      .container {
-         max-width: 1100px;
-         margin: 0 auto;
-         padding: 0 1.5rem;
-      }
-
-      .section {
-         padding: 5rem 0;
-      }
-
-      .section__title {
-         font-size: 2rem;
-         font-family: monospace;
-         text-align: center;
-         margin-bottom: 3rem;
-         color: #fff;
-      }
-
-      .section__title::before {
-         content: "./";
-         color: var(--first-color);
-      }
-
-      .tech-font {
-         font-family: 'Courier New', Courier, monospace;
-      }
-
-      /* Header */
-      .header {
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         background-color: rgba(11, 15, 25, 0.85);
-         backdrop-filter: blur(10px);
-         border-bottom: 1px solid var(--border-color);
-         z-index: 100;
-      }
-
-      .nav {
-         height: 4rem;
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-      }
-
-      .nav__logo {
-         font-size: 1.25rem;
-         font-weight: 700;
-         font-family: monospace;
-         letter-spacing: 1px;
-      }
-
-      .nav__logo span {
-         color: var(--first-color);
-      }
-
-      .nav__list {
-         display: flex;
-         gap: 2rem;
-      }
-
-      .nav__link {
-         font-size: 0.95rem;
-         font-weight: 500;
-         color: var(--text-muted);
-         transition: var(--transition);
-      }
-
-      .nav__link:hover {
-         color: var(--first-color);
-      }
-
-      /* Hero */
-      .hero {
-         min-height: 100vh;
-         display: flex;
-         align-items: center;
-         padding-top: 4rem;
-         background: radial-gradient(circle at 90% 10%, rgba(0, 255, 102, 0.05), transparent 40%),
-            radial-gradient(circle at 10% 90%, rgba(0, 210, 255, 0.05), transparent 40%);
-      }
-
-      .hero__container {
-         display: grid;
-         grid-template-columns: 1.2fr 0.8fr;
-         gap: 2rem;
-         align-items: center;
-      }
-
-      .hero__subtitle {
-         font-size: 1rem;
-         color: var(--first-color);
-         margin-bottom: 1rem;
-         letter-spacing: 2px;
-      }
-
-      .hero__title {
-         font-size: 3.5rem;
-         font-weight: 800;
-         line-height: 1.2;
-         margin-bottom: 1.5rem;
-         color: #fff;
-      }
-
-      .hero__description {
-         color: var(--text-muted);
-         font-size: 1.1rem;
-         margin-bottom: 2.5rem;
-         max-width: 540px;
-      }
-
-      .btn-group {
-         display: flex;
-         gap: 1rem;
-      }
-
-      .btn {
-         display: inline-flex;
-         align-items: center;
-         gap: 0.5rem;
-         padding: 0.75rem 1.75rem;
-         border-radius: 4px;
-         font-size: 0.95rem;
-         font-weight: 600;
-         transition: var(--transition);
-         font-family: monospace;
-      }
-
-      .btn--primary {
-         background-color: transparent;
-         color: var(--first-color);
-         border: 1px solid var(--first-color);
-      }
-
-      .btn--primary:hover {
-         background-color: rgba(0, 255, 102, 0.1);
-         box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
-      }
-
-      .btn--secondary {
-         background-color: transparent;
-         color: var(--second-color);
-         border: 1px solid var(--second-color);
-      }
-
-      .btn--secondary:hover {
-         background-color: rgba(0, 210, 255, 0.1);
-         box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
-      }
-
-      /* Terminal */
-      .terminal {
-         background-color: #070a12;
-         border: 1px solid var(--border-color);
-         border-radius: 6px;
-         overflow: hidden;
-         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      }
-
-      .terminal__header {
-         background-color: #101622;
-         padding: 0.75rem;
-         display: flex;
-         gap: 0.5rem;
-         border-bottom: 1px solid var(--border-color);
-      }
-
-      .terminal__dot {
-         width: 10px;
-         height: 10px;
-         border-radius: 50%;
-      }
-
-      .terminal__body {
-         padding: 1.5rem;
-         font-family: monospace;
-         font-size: 0.9rem;
-      }
-
-      .terminal__line {
-         margin-bottom: 0.5rem;
-      }
-
-      .terminal__line span {
-         color: var(--first-color);
-      }
-
-      /* Especialización */
-      .skills__grid {
-         display: grid;
-         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-         gap: 2rem;
-      }
-
-      .card {
-         background-color: var(--container-color);
-         border: 1px solid var(--border-color);
-         padding: 2.5rem 2rem;
-         border-radius: 6px;
-         transition: var(--transition);
-      }
-
-      .card:hover {
-         transform: translateY(-5px);
-         border-color: rgba(255, 255, 255, 0.1);
-      }
-
-      .card__icon {
-         font-size: 2.5rem;
-         margin-bottom: 1.5rem;
-         display: inline-block;
-      }
-
-      .card__icon--dev {
-         color: var(--second-color);
-      }
-
-      .card__icon--cyber {
-         color: var(--first-color);
-      }
-
-      .card__title {
-         font-size: 1.5rem;
-         margin-bottom: 1rem;
-         color: #fff;
-      }
-
-      .card__list {
-         margin-top: 1.5rem;
-      }
-
-      .card__list li {
-         margin-bottom: 0.5rem;
-         color: var(--text-muted);
-         font-size: 0.9rem;
-         display: flex;
-         align-items: center;
-         gap: 0.5rem;
-      }
-
-      .card__list li::before {
-         content: "▹";
-         color: var(--first-color);
-      }
-
-      /* Portafolio Dinámico */
-      .portfolio__grid {
-         display: grid;
-         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-         gap: 2rem;
-      }
-
-      .project-card {
-         background-color: var(--container-color);
-         border: 1px solid var(--border-color);
-         border-radius: 6px;
-         overflow: hidden;
-         display: flex;
-         flex-direction: column;
-         transition: var(--transition);
-      }
-
-      .project-card:hover {
-         border-color: var(--text-muted);
-      }
-
-      .project-card__content {
-         padding: 2rem;
-         display: flex;
-         flex-direction: column;
-         flex-grow: 1;
-      }
-
-      .project-card__tag {
-         font-family: monospace;
-         font-size: 0.75rem;
-         text-transform: uppercase;
-         letter-spacing: 1px;
-         margin-bottom: 0.5rem;
-      }
-
-      .project-card__tag--cyber {
-         color: var(--first-color);
-      }
-
-      .project-card__tag--dev {
-         color: var(--second-color);
-      }
-
-      .project-card__title {
-         font-size: 1.25rem;
-         color: #fff;
-         margin-bottom: 0.75rem;
-      }
-
-      .project-card__description {
-         color: var(--text-muted);
-         font-size: 0.9rem;
-         margin-bottom: 1.5rem;
-         flex-grow: 1;
-      }
-
-      .project-card__link {
-         display: inline-flex;
-         align-items: center;
-         gap: 0.5rem;
-         font-family: monospace;
-         font-size: 0.9rem;
-         color: #fff;
-         transition: var(--transition);
-      }
-
-      .project-card__link:hover {
-         color: var(--first-color);
-      }
-
-      /* Footer */
-      .footer {
-         border-top: 1px solid var(--border-color);
-         padding: 4rem 0 2rem 0;
-         background-color: #070a12;
-         text-align: center;
-      }
-
-      .footer__title {
-         font-size: 1.75rem;
-         color: #fff;
-         margin-bottom: 1rem;
-      }
-
-      .footer__description {
-         color: var(--text-muted);
-         max-width: 400px;
-         margin: 0 auto 2rem auto;
-      }
-
-      .footer__socials {
-         display: flex;
-         justify-content: center;
-         gap: 2rem;
-         margin-bottom: 3rem;
-      }
-
-      .footer__social-link {
-         font-size: 1.5rem;
-         color: var(--text-muted);
-         transition: var(--transition);
-      }
-
-      .footer__social-link:hover {
-         color: var(--first-color);
-         transform: translateY(-3px);
-      }
-
-      .footer__copy {
-         font-size: 0.8rem;
-         color: #475569;
-         font-family: monospace;
-      }
-
-      @media (max-width: 768px) {
-         .hero__container {
-            grid-template-columns: 1fr;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Nico Guzmán | Desarrollador de Software y Especialista en Ciberseguridad</title>
+    <meta name="description" content="Portafolio profesional de Nico Guzmán. Desarrollo de aplicaciones eficientes, optimización de código y auditoría de seguridad web bajo estándares OWASP.">
+    <meta name="keywords" content="Nico Guzmán, NicoGuzok, Desarrollador de Software, Ciberseguridad, Portafolio Frontend, Programación Segura, GitHub Pages">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://nicoguzok.github.io/">
+
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Nico Guzmán | Dev & Cybersec Portfolio">
+    <meta property="og:description" content="Explora mis proyectos recientes en desarrollo de software y auditorías de ciberseguridad.">
+    <meta property="og:url" content="https://nicoguzok.github.io/">
+    <meta property="og:image" content="https://nicoguzok.github.io/assets/img/og-preview.png">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    
+    <link rel="shortcut icon" href="assets/img/icon.ico" type="image/x-icon">
+
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --container-color: #131a26;
+            --first-color: #00ff66; 
+            --second-color: #00d2ff; 
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section__title {
+            font-size: 2rem;
+            font-family: monospace;
             text-align: center;
-            padding-top: 2rem;
-         }
+            margin-bottom: 3rem;
+            color: #fff;
+        }
 
-         .hero__title {
+        .section__title::before {
+            content: "./";
+            color: var(--first-color);
+        }
+
+        .tech-font {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Header / Nav */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
+
+        .nav {
+            height: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+
+        .nav__logo span {
+            color: var(--first-color);
+        }
+
+        .nav__list {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav__link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav__link:hover {
+            color: var(--first-color);
+        }
+
+        /* Hero Layout */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 4rem;
+            background: radial-gradient(circle at 90% 10%, rgba(0, 255, 102, 0.05), transparent 40%),
+                        radial-gradient(circle at 10% 90%, rgba(0, 210, 255, 0.05), transparent 40%);
+        }
+
+        .hero__container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero__subtitle {
+            font-size: 1rem;
+            color: var(--first-color);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero__title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .hero__description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+        }
+
+        /* UI Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
+            font-family: monospace;
+        }
+
+        .btn--primary {
+            background-color: transparent;
+            color: var(--first-color);
+            border: 1px solid var(--first-color);
+        }
+
+        .btn--primary:hover {
+            background-color: rgba(0, 255, 102, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+        }
+
+        .btn--secondary {
+            background-color: transparent;
+            color: var(--second-color);
+            border: 1px solid var(--second-color);
+        }
+
+        .btn--secondary:hover {
+            background-color: rgba(0, 210, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+
+        /* Terminal Component */
+        .terminal {
+            background-color: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .terminal__header {
+            background-color: #101622;
+            padding: 0.75rem;
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .terminal__dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .terminal__body {
+            padding: 1.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .terminal__line {
+            margin-bottom: 0.5rem;
+        }
+
+        .terminal__line span {
+            color: var(--first-color);
+        }
+
+        /* Grid System (Enfoque y Portafolio) */
+        .skills__grid, .portfolio__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card, .project-card {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .card:hover, .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--text-muted);
+        }
+
+        .card__icon {
             font-size: 2.5rem;
-         }
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
 
-         .hero__description {
-            margin-inline: auto;
-         }
+        .card__icon--dev { color: var(--second-color); }
+        .card__icon--cyber { color: var(--first-color); }
 
-         .btn-group {
+        .card__title, .project-card__title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .card__list {
+            margin-top: 1.5rem;
+        }
+
+        .card__list li {
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card__list li::before {
+            content: "▹";
+            color: var(--first-color);
+        }
+
+        /* Project Card Specs */
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .project-card__tag {
+            font-family: monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .project-card__tag--cyber { color: var(--first-color); }
+        .project-card__tag--dev { color: var(--second-color); }
+
+        .project-card__description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #fff;
+            transition: var(--transition);
+        }
+
+        .project-card__link:hover {
+            color: var(--first-color);
+        }
+
+        /* Footer Element */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 0 2rem 0;
+            background-color: #070a12;
+            text-align: center;
+        }
+
+        .footer__title {
+            font-size: 1.75rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .footer__description {
+            color: var(--text-muted);
+            max-width: 400px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .footer__socials {
+            display: flex;
             justify-content: center;
-         }
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
 
-         .nav__list {
-            display: none;
-         }
-      }
-   </style>
+        .footer__social-link {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .footer__social-link:hover {
+            color: var(--first-color);
+            transform: translateY(-3px);
+        }
+
+        .footer__copy {
+            font-size: 0.8rem;
+            color: #475569;
+            font-family: monospace;
+        }
+
+        @media (max-width: 768px) {
+            .hero__container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 2rem;
+            }
+            .hero__title { font-size: 2.5rem; }
+            .hero__description { margin-inline: auto; }
+            .btn-group { justify-content: center; }
+            .nav__list { display: none; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nico Guzmán",
+      "url": "https://nicoguzok.github.io/",
+      "jobTitle": "Software Developer & Cybersecurity Specialist",
+      "sameAs": [
+        "https://github.com/Nicoguzok",
+        "https://www.linkedin.com/in/nico-guzman/"
+      ]
+    }
+    </script>
 </head>
-
 <body>
 
-   <!--==================== HEADER ====================-->
-   <header class="header">
-      <nav class="nav container">
-         <a href="#home" class="nav__logo">NICO<span>.guzok</span></a>
-         <ul class="nav__list">
-            <li><a href="#home" class="nav__link">Inicio</a></li>
-            <li><a href="#enfoque" class="nav__link">Enfoque</a></li>
-            <li><a href="#proyectos" class="nav__link">Portafolio</a></li>
-            <li><a href="#contacto" class="nav__link">Contacto</a></li>
-         </ul>
-      </nav>
-   </header>
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Navegación principal">
+            <a href="#home" class="nav__logo" aria-label="Ir al inicio">NICO<span>.guzok</span></a>
+            <ul class="nav__list">
+                <li><a href="#home" class="nav__link">Inicio</a></li>
+                <li><a href="#enfoque" class="nav__link">Enfoque</a></li>
+                <li><a href="#proyectos" class="nav__link">Portafolio</a></li>
+                <li><a href="#contacto" class="nav__link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-   <!--==================== MAIN ====================-->
-   <main>
+    <main role="main">
+        
+        <section class="hero" id="home" aria-label="Presentación">
+            <div class="hero__container container">
+                <div class="hero__data">
+                    <p class="hero__subtitle tech-font">SYSTEM.INIT()</p>
+                    <h1 class="hero__title">Nico Guzmán</h1>
+                    <p class="hero__description">
+                        Desarrollador de software enfocado en la creación de soluciones eficientes y analista orientado a proteger activos digitales a través de la ciberseguridad.
+                    </p>
+                    <div class="btn-group">
+                        <a href="#proyectos" class="btn btn--primary"><i class="ri-terminal-box-line" aria-hidden="true"></i> Ver Proyectos</a>
+                        <a href="#contacto" class="btn btn--secondary"><i class="ri-mail-send-line" aria-hidden="true"></i> Contacto</a>
+                    </div>
+                </div>
 
-      <!-- HERO SECTION -->
-      <section class="hero" id="home">
-         <div class="hero__container container">
-            <div class="hero__data">
-               <p class="hero__subtitle tech-font">SYSTEM.INIT()</p>
-               <h1 class="hero__title">Nico Guzmán</h1>
-               <p class="hero__description">
-                  Desarrollador de software enfocado en la creación de soluciones eficientes y analista orientado a
-                  proteger activos digitales a través de la ciberseguridad.
-               </p>
-               <div class="btn-group">
-                  <a href="#proyectos" class="btn btn--primary"><i class="ri-terminal-box-line"></i> Ver Proyectos</a>
-                  <a href="#contacto" class="btn btn--secondary"><i class="ri-mail-send-line"></i> Contacto</a>
-               </div>
+                <div class="terminal" aria-hidden="true">
+                    <div class="terminal__header">
+                        <div class="terminal__dot" style="background-color: #ef4444;"></div>
+                        <div class="terminal__dot" style="background-color: #eab308;"></div>
+                        <div class="terminal__dot" style="background-color: #22c55e;"></div>
+                    </div>
+                    <div class="terminal__body tech-font">
+                        <div class="terminal__line"><span>$</span> cat info.txt</div>
+                        <div class="terminal__line" style="color: var(--text-muted);">Status: Buscando oportunidades</div>
+                        <div class="terminal__line"><span>$</span> nmap -sV nico.dev</div>
+                        <div class="terminal__line" style="color: var(--text-muted);">PORT STATE SERVICE</div>
+                        <div class="terminal__line" style="color: var(--text-muted);">80/tcp open http (Secure)</div>
+                        <div class="terminal__line"><span>$</span> <span id="typing" style="color: #fff;"></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container" id="enfoque" aria-label="Habilidades técnicas">
+            <h2 class="section__title">Especialización Técnica</h2>
+            <div class="skills__grid">
+                
+                <div class="card">
+                    <i class="ri-code-line card__icon card__icon--dev" aria-hidden="true"></i>
+                    <h3 class="card__title">Desarrollo de Software</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Construcción de aplicaciones lógicas, optimizadas y con código limpio.</p>
+                    <ul class="card__list tech-font">
+                        <li>Frontend: HTML5, CSS3, JavaScript</li>
+                        <li>Backend: Python, Node.js</li>
+                        <li>Control de versiones: Git & GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <i class="ri-shield-keyhole-line card__icon card__icon--cyber" aria-hidden="true"></i>
+                    <h3 class="card__title">Ciberseguridad</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Auditoría de sistemas y aplicación de buenas prácticas de defensa digital.</p>
+                    <ul class="card__list tech-font">
+                        <li>Análisis de OWASP Top 10</li>
+                        <li>Pentesting Web básico</li>
+                        <li>Hardening de sistemas Linux</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section container" id="proyectos" aria-label="Galería de proyectos">
+            <h2 class="section__title">Proyectos Recientes</h2>
+            <div class="portfolio__grid" id="portfolio-container"></div>
+        </section>
+
+    </main>
+
+    <footer class="footer" id="contacto" role="contentinfo">
+        <div class="container">
+            <h2 class="footer__title">¿Listo para auditar o desarrollar?</h2>
+            <p class="footer__description">Estoy disponible para proyectos de desarrollo de software y análisis de seguridad informática.</p>
+            
+            <div class="footer__socials">
+                <a href="https://www.linkedin.com/in/nico-guzman/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Visitar perfil de LinkedIn de Nico">
+                    <i class="ri-linkedin-box-fill" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/Nicoguzok" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Visitar cuenta de GitHub de Nico">
+                    <i class="ri-github-fill" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:near.ng7@gmail.com?subject=Contacto%20desde%20Portafolio" class="footer__social-link" title="Enviar correo directo a Nico" aria-label="Enviar correo electrónico">
+                    <i class="ri-mail-line" aria-hidden="true"></i>
+                </a>
             </div>
 
-            <!-- Terminal -->
-            <div class="terminal">
-               <div class="terminal__header">
-                  <div class="terminal__dot" style="background-color: #ef4444;"></div>
-                  <div class="terminal__dot" style="background-color: #eab308;"></div>
-                  <div class="terminal__dot" style="background-color: #22c55e;"></div>
-               </div>
-               <div class="terminal__body tech-font">
-                  <div class="terminal__line"><span>$</span> cat info.txt</div>
-                  <div class="terminal__line" style="color: var(--text-muted);">Status: Buscando oportunidades</div>
-                  <div class="terminal__line"><span>$</span> nmap -sV nico.dev</div>
-                  <div class="terminal__line" style="color: var(--text-muted);">PORT STATE SERVICE</div>
-                  <div class="terminal__line" style="color: var(--text-muted);">80/tcp open http (Secure)</div>
-                  <div class="terminal__line"><span>$</span> <span id="typing" style="color: #fff;"></span></div>
-               </div>
-            </div>
-         </div>
-      </section>
+            <p class="footer__copy">&#169; 2026 Nico Guzmán. Build Secured.</p>
+        </div>
+    </footer>
 
-      <!-- SECCIÓN DE ENFOQUE -->
-      <section class="section container" id="enfoque">
-         <h2 class="section__title">Especialización Técnica</h2>
-         <div class="skills__grid">
+    <script>
+        // Array de datos único (Single Source of Truth)
+        const proyectos = [
+            {
+                titulo: "Escáner de Puertos Automatizado",
+                descripcion: "Script desarrollado en Python para auditar la seguridad perimetral de servidores locales de manera rápida y eficiente.",
+                categoria: "ciberseguridad",
+                enlace: "https://github.com/Nicoguzok"
+            },
+            {
+                titulo: "E-commerce con Filtros de Inyección",
+                descripcion: "Sitio web diseñado para contener defensas activas contra ataques tipo SQLi y Cross-Site Scripting (XSS) en el cliente.",
+                categoria: "desarrollo",
+                enlace: "https://github.com/Nicoguzok"
+            },
+            {
+                titulo: "Plataforma Web para Eventos",
+                descripcion: "Interfaz interactiva completamente responsiva adaptada a las necesidades modernas de diseño y accesibilidad web.",
+                categoria: "desarrollo",
+                enlace: "https://github.com/Nicoguzok"
+            }
+        ];
 
-            <div class="card">
-               <i class="ri-code-line card__icon card__icon--dev"></i>
-               <h3 class="card__title">Desarrollo de Software</h3>
-               <p style="color: var(--text-muted); font-size: 0.95rem;">Construcción de aplicaciones lógicas,
-                  optimizadas y con código limpio.</p>
-               <ul class="card__list tech-font">
-                  <li>Frontend: HTML5, CSS3, JavaScript</li>
-                  <li>Backend: Python, Node.js</li>
-                  <li>Control de versiones: Git & GitHub</li>
-               </ul>
-            </div>
+        // Sanitización estricta de caracteres para neutralizar XSS reflejado/inyectado
+        function sanitize(string) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#x27;',
+                "/": '&#x2F;'
+            };
+            return string.replace(/[&<>"'/]/ig, (match) => map[match]);
+        }
 
-            <div class="card">
-               <i class="ri-shield-keyhole-line card__icon card__icon--cyber"></i>
-               <h3 class="card__title">Ciberseguridad</h3>
-               <p style="color: var(--text-muted); font-size: 0.95rem;">Auditoría de sistemas y aplicación de buenas
-                  prácticas de defensa digital.</p>
-               <ul class="card__list tech-font">
-                  <li>Análisis de OWASP Top 10</li>
-                  <li>Pentesting Web básico</li>
-                  <li>Hardening de sistemas Linux</li>
-               </ul>
-            </div>
+        // Renderizado eficiente del DOM
+        function renderPortfolio() {
+            const container = document.getElementById("portfolio-container");
+            if (!container) return;
 
-         </div>
-      </section>
+            let htmlBuffer = "";
 
-      <!-- SECCIÓN DE PORTAFOLIO (REDUCCIÓN SEMÁNTICA PARA INYECCIÓN DINÁMICA) -->
-      <section class="section container" id="proyectos">
-         <h2 class="section__title">Proyectos Recientes</h2>
-         <!-- Este contenedor se llenará automáticamente con JavaScript -->
-         <div class="portfolio__grid" id="portfolio-container"></div>
-      </section>
+            proyectos.forEach(p => {
+                const safeTitle = sanitize(p.titulo);
+                const safeDesc = sanitize(p.descripcion);
+                const safeLink = sanitize(p.enlace);
 
-   </main>
+                const tagClass = p.categoria === "ciberseguridad" ? "project-card__tag--cyber" : "project-card__tag--dev";
+                const tagText = p.categoria === "ciberseguridad" ? "Ciberseguridad" : "Desarrollo Web";
 
-   <!--==================== FOOTER ====================-->
-   <footer class="footer" id="contacto">
-      <div class="container">
-         <h2 class="footer__title">¿Listo para auditar o desarrollar?</h2>
-         <p class="footer__description">Estoy disponible para proyectos de desarrollo de software y análisis de
-            seguridad informática.</p>
-
-         <!-- Mitigación de Tabnabbing añadiendo rel="noopener noreferrer" -->
-         <div class="footer__socials">
-            <a href="https://www.linkedin.com/in/nico-guzman/" target="_blank" rel="noopener noreferrer"
-               class="footer__social-link">
-               <i class="ri-linkedin-box-fill"></i>
-            </a>
-            <a href="https://github.com/Nicoguzok" target="_blank" rel="noopener noreferrer"
-               class="footer__social-link">
-               <i class="ri-github-fill"></i>
-            </a>
-            <!-- Enlace de contacto por correo electrónico optimizado -->
-            <a href="mailto:near.ng7@gmail.com?subject=Contacto%20desde%20Portafolio" class="footer__social-link"
-               title="Enviar un correo electrónico a Nico">
-               <i class="ri-mail-line"></i>
-            </a>
-         </div>
-
-         <p class="footer__copy">&#169; 2026 Nico Guzmán. Build Secured.</p>
-      </div>
-   </footer>
-
-   <!--=============== LÓGICA Y ALGORITMOS JAVASCRIPT ===============-->
-   <script>
-      /* 1. ARREGLO DE OBJETOS (ESTRUCTURA DE DATOS REUTILIZABLE) */
-      const proyectos = [
-         {
-            titulo: "Escáner de Puertos Automatizado",
-            descripcion: "Script desarrollado en Python para auditar la seguridad perimetral de servidores locales de manera rápida y eficiente.",
-            categoria: "ciberseguridad",
-            enlace: "https://github.com/Nicoguzok"
-         },
-         {
-            titulo: "E-commerce con Filtros de Inyección",
-            descripcion: "Sitio web diseñado para contener defensas activas contra ataques tipo SQLi y Cross-Site Scripting (XSS) en el cliente.",
-            categoria: "desarrollo",
-            enlace: "https://github.com/Nicoguzok"
-         },
-         {
-            titulo: "Plataforma Web para Eventos",
-            descripcion: "Interfaz interactiva completamente responsiva adaptada a las necesidades modernas de diseño y accesibilidad web.",
-            categoria: "desarrollo",
-            enlace: "https://github.com/Nicoguzok"
-         }
-      ];
-
-      /* 2. FUNCIÓN DE RENDERIZADO DINÁMICO EN EL DOM */
-      function cargarProyectos() {
-         const contenedor = document.getElementById("portfolio-container");
-         let htmlGenerado = "";
-
-         // Iteración sobre la estructura de datos
-         proyectos.forEach(proyecto => {
-            // Operación ternaria para decidir la clase de la etiqueta según la categoría
-            const claseTag = proyecto.categoria === "ciberseguridad" ? "project-card__tag--cyber" : "project-card__tag--dev";
-            const textoTag = proyecto.categoria === "ciberseguridad" ? "Ciberseguridad" : "Desarrollo Web";
-
-            // Plantilla literal (Template String) para construir el HTML de forma limpia
-            htmlGenerado += `
+                htmlBuffer += `
                     <article class="project-card">
-                        <div class="project-card__content">
-                            <span class="project-card__tag ${claseTag}">${textoTag}</span>
-                            <h3 class="project-card__title">${proyecto.titulo}</h3>
-                            <p class="project-card__description">${proyecto.descripcion}</p>
-                            <a href="${proyecto.enlace}" target="_blank" rel="noopener noreferrer" class="project-card__link">
-                                Explorar código <i class="ri-arrow-right-line"></i>
-                            </a>
-                        </div>
+                        <span class="project-card__tag ${tagClass}">${tagText}</span>
+                        <h3 class="project-card__title">${safeTitle}</h3>
+                        <p class="project-card__description">${safeDesc}</p>
+                        <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="project-card__link" aria-label="Ver repositorio de ${safeTitle}">
+                            Explorar código <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                        </a>
                     </article>
                 `;
-         });
+            });
 
-         // Inyección única en el DOM para evitar re-flujos (reflows) innecesarios del navegador
-         contenedor.innerHTML = htmlGenerated = htmlGenerado;
-      }
+            container.innerHTML = htmlBuffer;
+        }
 
-      /* 3. SCRIPT DEL EFECTO ESCRITURA DE LA TERMINAL */
-      const words = ["echo '¡Bienvenido!';", "ready_"];
-      let i = 0;
-      let timer;
+        // Control asíncrono del efecto typewriter de la terminal
+        const terminalCommands = ["echo '¡Bienvenido!';", "ready_"];
+        let commandIndex = 0;
+        let charIndex = 0;
+        let currentText = "";
+        let isDeleting = false;
 
-      function typingEffect() {
-         let word = words[i].split("");
-         var loopTyping = function () {
-            if (word.length > 0) {
-               document.getElementById('typing').innerHTML += word.shift();
+        function type() {
+            const typingSpan = document.getElementById("typing");
+            if (!typingSpan) return;
+
+            const fullText = terminalCommands[commandIndex];
+
+            if (isDeleting) {
+                currentText = fullText.substring(0, currentText.length - 1);
             } else {
-               setTimeout(deletingEffect, 2000);
-               return false;
+                currentText = fullText.substring(0, currentText.length + 1);
             }
-            timer = setTimeout(loopTyping, 150);
-         };
-         loopTyping();
-      }
 
-      function deletingEffect() {
-         let word = words[i].split("");
-         var loopDeleting = function () {
-            if (word.length > 0) {
-               word.pop();
-               document.getElementById('typing').innerHTML = word.join("");
-            } else {
-               if (words.length > (i + 1)) {
-                  i++;
-               } else {
-                  i = 0;
-               }
-               setTimeout(typingEffect, 500);
-               return false;
+            typingSpan.innerHTML = currentText;
+
+            let typeSpeed = 100;
+            if (isDeleting) typeSpeed /= 2;
+
+            if (!isDeleting && currentText === fullText) {
+                typeSpeed = 2000; // Pausa al terminar de escribir
+                isDeleting = true;
+            } else if (isDeleting && currentText === "") {
+                isDeleting = false;
+                commandIndex++;
+                if (commandIndex >= terminalCommands.length) commandIndex = 0;
+                typeSpeed = 500; // Pausa antes de la siguiente palabra
             }
-            timer = setTimeout(loopDeleting, 100);
-         };
-         loopDeleting();
-      }
 
-      /* INITIALIZATION DE EVENTOS */
-      document.addEventListener("DOMContentLoaded", () => {
-         cargarProyectos(); // Inicializa la carga de tus proyectos
-         typingEffect();    // Inicializa el efecto visual
-      });
-   </script>
+            setTimeout(type, typeSpeed);
+        }
+
+        // Inicialización segura de eventos globales
+        document.addEventListener("DOMContentLoaded", () => {
+            renderPortfolio();
+            setTimeout(type, 1000); // Retraso controlado para mejorar métricas de rendimiento inicial
+        });
+    </script>
 </body>
-
 </html>
