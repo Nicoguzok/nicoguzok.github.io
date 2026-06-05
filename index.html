@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nico Guzmán | Dev & Cybersec Portfolio</title>
     
+    <!--=============== FAVICON ===============-->
     <link rel="shortcut icon" href="assets/img/icon.ico" type="image/x-icon">
 
+    <!--=============== REMIXICONS ===============-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
 
+    <!--=============== CSS INTEGRADO Y OPTIMIZADO ===============-->
     <style>
-        /* Variables del sistema de diseño (Paleta Cyber-Dark) */
         :root {
             --bg-color: #0b0f19;
             --container-color: #131a26;
-            --first-color: #00ff66; /* Verde Neo (Ciberseguridad) */
-            --second-color: #00d2ff; /* Azul Tech (Desarrollo) */
+            --first-color: #00ff66; 
+            --second-color: #00d2ff; 
             --text-color: #e2e8f0;
             --text-muted: #94a3b8;
             --border-color: #1e293b;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Estilos Base */
         * {
             margin: 0;
             padding: 0;
@@ -70,12 +71,11 @@
             color: var(--first-color);
         }
 
-        /* Utilidades de Texto */
         .tech-font {
             font-family: 'Courier New', Courier, monospace;
         }
 
-        /* Header / Navegación */
+        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -121,7 +121,7 @@
             color: var(--first-color);
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -160,7 +160,6 @@
             max-width: 540px;
         }
 
-        /* Botones Profesionales */
         .btn-group {
             display: flex;
             gap: 1rem;
@@ -200,7 +199,7 @@
             box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
         }
 
-        /* Terminal Interactiva Simulada */
+        /* Terminal */
         .terminal {
             background-color: #070a12;
             border: 1px solid var(--border-color);
@@ -218,7 +217,6 @@
         }
 
         .terminal__dot {
-            width: 100%;
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -238,7 +236,7 @@
             color: var(--first-color);
         }
 
-        /* Sección de Habilidades / Enfoque */
+        /* Especialización */
         .skills__grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -291,7 +289,7 @@
             color: var(--first-color);
         }
 
-        /* Portafolio de Proyectos */
+        /* Portafolio Dinámico */
         .portfolio__grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -305,6 +303,11 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: var(--text-muted);
         }
 
         .project-card__content {
@@ -352,7 +355,7 @@
             color: var(--first-color);
         }
 
-        /* Footer / Contacto */
+        /* Footer */
         .footer {
             border-top: 1px solid var(--border-color);
             padding: 4rem 0 2rem 0;
@@ -396,7 +399,6 @@
             font-family: monospace;
         }
 
-        /* Responsividad para pantallas móviles */
         @media (max-width: 768px) {
             .hero__container {
                 grid-template-columns: 1fr;
@@ -406,12 +408,13 @@
             .hero__title { font-size: 2.5rem; }
             .hero__description { margin-inline: auto; }
             .btn-group { justify-content: center; }
-            .nav__list { display: none; } /* Simplificado para móviles */
+            .nav__list { display: none; }
         }
     </style>
 </head>
 <body>
 
+    <!--==================== HEADER ====================-->
     <header class="header">
         <nav class="nav container">
             <a href="#home" class="nav__logo">NICO<span>.guzok</span></a>
@@ -424,8 +427,10 @@
         </nav>
     </header>
 
+    <!--==================== MAIN ====================-->
     <main>
         
+        <!-- HERO SECTION -->
         <section class="hero" id="home">
             <div class="hero__container container">
                 <div class="hero__data">
@@ -440,6 +445,7 @@
                     </div>
                 </div>
 
+                <!-- Terminal -->
                 <div class="terminal">
                     <div class="terminal__header">
                         <div class="terminal__dot" style="background-color: #ef4444;"></div>
@@ -458,6 +464,7 @@
             </div>
         </section>
 
+        <!-- SECCIÓN DE ENFOQUE -->
         <section class="section container" id="enfoque">
             <h2 class="section__title">Especialización Técnica</h2>
             <div class="skills__grid">
@@ -487,58 +494,93 @@
             </div>
         </section>
 
+        <!-- SECCIÓN DE PORTAFOLIO (REDUCCIÓN SEMÁNTICA PARA INYECCIÓN DINÁMICA) -->
         <section class="section container" id="proyectos">
             <h2 class="section__title">Proyectos Recientes</h2>
-            <div class="portfolio__grid">
-                
-                <article class="project-card">
-                    <div class="project-card__content">
-                        <span class="project-card__tag project-card__tag--cyber">Ciberseguridad</span>
-                        <h3 class="project-card__title">Escáner de Puertos Automatizado</h3>
-                        <p class="project-card__description">Script desarrollado en Python para auditar la seguridad perimetral de servidores locales de manera rápida.</p>
-                        <a href="https://github.com/Nicoguzok" target="_blank" class="project-card__link">Explorar código <i class="ri-arrow-right-line"></i></a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-card__content">
-                        <span class="project-card__tag project-card__tag--dev">Desarrollo Web</span>
-                        <h3 class="project-card__title">E-commerce con Filtros de Inyección</h3>
-                        <p class="project-card__description">Sitio web diseñado para contener defensas activas contra ataques tipo SQLi y Cross-Site Scripting (XSS).</p>
-                        <a href="https://github.com/Nicoguzok" target="_blank" class="project-card__link">Explorar código <i class="ri-arrow-right-line"></i></a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-card__content">
-                        <span class="project-card__tag project-card__tag--dev">Diseño Frontend</span>
-                        <h3 class="project-card__title">Plataforma Web para Eventos</h3>
-                        <p class="project-card__description">Interfaz interactiva completamente responsiva adaptada a las necesidades modernas de experiencia de usuario.</p>
-                        <a href="https://github.com/Nicoguzok" target="_blank" class="project-card__link">Explorar código <i class="ri-arrow-right-line"></i></a>
-                    </div>
-                </article>
-
-            </div>
+            <!-- Este contenedor se llenará automáticamente con JavaScript -->
+            <div class="portfolio__grid" id="portfolio-container"></div>
         </section>
 
     </main>
 
+    <!--==================== FOOTER ====================-->
     <footer class="footer" id="contacto">
         <div class="container">
             <h2 class="footer__title">¿Listo para auditar o desarrollar?</h2>
             <p class="footer__description">Estoy disponible para proyectos de desarrollo de software y análisis de seguridad informática.</p>
             
+            <!-- Mitigación de Tabnabbing añadiendo rel="noopener noreferrer" -->
             <div class="footer__socials">
-                <a href="https://www.linkedin.com/in/nico-guzman/" target="_blank" class="footer__social-link"><i class="ri-linkedin-box-fill"></i></a>
-                <a href="https://github.com/Nicoguzok" target="_blank" class="footer__social-link"><i class="ri-github-fill"></i></a>
-                <a href="mailto:tu-correo@ejemplo.com" class="footer__social-link"><i class="ri-mail-line"></i></a>
+                <a href="https://www.linkedin.com/in/nico-guzman/" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                    <i class="ri-linkedin-box-fill"></i>
+                </a>
+                <a href="https://github.com/Nicoguzok" target="_blank" rel="noopener noreferrer" class="footer__social-link">
+                    <i class="ri-github-fill"></i>
+                </a>
+                <a href="mailto:tu-correo@ejemplo.com" class="footer__social-link">
+                    <i class="ri-mail-line"></i>
+                </a>
             </div>
 
             <p class="footer__copy">&#169; 2026 Nico Guzmán. Build Secured.</p>
         </div>
     </footer>
 
+    <!--=============== LÓGICA Y ALGORITMOS JAVASCRIPT ===============-->
     <script>
+        /* 1. ARREGLO DE OBJETOS (ESTRUCTURA DE DATOS REUTILIZABLE) */
+        const proyectos = [
+            {
+                titulo: "Escáner de Puertos Automatizado",
+                descripcion: "Script desarrollado en Python para auditar la seguridad perimetral de servidores locales de manera rápida y eficiente.",
+                categoria: "ciberseguridad",
+                enlace: "https://github.com/Nicoguzok"
+            },
+            {
+                titulo: "E-commerce con Filtros de Inyección",
+                descripcion: "Sitio web diseñado para contener defensas activas contra ataques tipo SQLi y Cross-Site Scripting (XSS) en el cliente.",
+                categoria: "desarrollo",
+                enlace: "https://github.com/Nicoguzok"
+            },
+            {
+                titulo: "Plataforma Web para Eventos",
+                descripcion: "Interfaz interactiva completamente responsiva adaptada a las necesidades modernas de diseño y accesibilidad web.",
+                categoria: "desarrollo",
+                enlace: "https://github.com/Nicoguzok"
+            }
+        ];
+
+        /* 2. FUNCIÓN DE RENDERIZADO DINÁMICO EN EL DOM */
+        function cargarProyectos() {
+            const contenedor = document.getElementById("portfolio-container");
+            let htmlGenerado = "";
+
+            // Iteración sobre la estructura de datos
+            proyectos.forEach(proyecto => {
+                // Operación ternaria para decidir la clase de la etiqueta según la categoría
+                const claseTag = proyecto.categoria === "ciberseguridad" ? "project-card__tag--cyber" : "project-card__tag--dev";
+                const textoTag = proyecto.categoria === "ciberseguridad" ? "Ciberseguridad" : "Desarrollo Web";
+
+                // Plantilla literal (Template String) para construir el HTML de forma limpia
+                htmlGenerado += `
+                    <article class="project-card">
+                        <div class="project-card__content">
+                            <span class="project-card__tag ${claseTag}">${textoTag}</span>
+                            <h3 class="project-card__title">${proyecto.titulo}</h3>
+                            <p class="project-card__description">${proyecto.descripcion}</p>
+                            <a href="${proyecto.enlace}" target="_blank" rel="noopener noreferrer" class="project-card__link">
+                                Explorar código <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </article>
+                `;
+            });
+
+            // Inyección única en el DOM para evitar re-flujos (reflows) innecesarios del navegador
+            contenedor.innerHTML = htmlGenerated = htmlGenerado;
+        }
+
+        /* 3. SCRIPT DEL EFECTO ESCRITURA DE LA TERMINAL */
         const words = ["echo '¡Bienvenido!';", "ready_"];
         let i = 0;
         let timer;
@@ -577,7 +619,11 @@
             loopDeleting();
         }
 
-        document.addEventListener("DOMContentLoaded", typingEffect);
+        /* INITIALIZATION DE EVENTOS */
+        document.addEventListener("DOMContentLoaded", () => {
+            cargarProyectos(); // Inicializa la carga de tus proyectos
+            typingEffect();    // Inicializa el efecto visual
+        });
     </script>
 </body>
 </html>
