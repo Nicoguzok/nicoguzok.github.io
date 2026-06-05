@@ -1,224 +1,583 @@
 <!DOCTYPE html>
-   <html lang="en-es">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="assets/img/icon.ico" type="image/x-icon">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
-      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-      <link rel="stylesheet" href="assets/css/styles.css">
-      <title>Nico Guzman</title>
-   </head>
-   <body>
-      <header class="header" id="header">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nico Guzmán | Dev & Cybersec Portfolio</title>
+    
+    <link rel="shortcut icon" href="assets/img/icon.ico" type="image/x-icon">
 
-         <nav class="nav container">
-            <a href="index.html" class="nav__logo">Nico</a>
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li class="nav__item">
-                     <a href="index.html" class="nav__link">Inicio</a>
-                  </li>
-                  <li class="nav__item">
-                     <a href="about.html" class="nav__link">Info</a>
-                  </li>
-                  <li class="nav__item">
-                     <a href="work.html" class="nav__link">Portafolio</a>
-                  </li>
-                  <li class="nav__item">
-                     <a href="contact.html" class="button">Contacto</a>
-                  </li>
-               </ul>
-               <div class="nav__close" id="nav-close">
-                  <i class="ri-close-line"></i>
-               </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+
+    <style>
+        /* Variables del sistema de diseño (Paleta Cyber-Dark) */
+        :root {
+            --bg-color: #0b0f19;
+            --container-color: #131a26;
+            --first-color: #00ff66; /* Verde Neo (Ciberseguridad) */
+            --second-color: #00d2ff; /* Azul Tech (Desarrollo) */
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Estilos Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section__title {
+            font-size: 2rem;
+            font-family: monospace;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #fff;
+        }
+
+        .section__title::before {
+            content: "./";
+            color: var(--first-color);
+        }
+
+        /* Utilidades de Texto */
+        .tech-font {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Header / Navegación */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
+
+        .nav {
+            height: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+
+        .nav__logo span {
+            color: var(--first-color);
+        }
+
+        .nav__list {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav__link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav__link:hover {
+            color: var(--first-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 4rem;
+            background: radial-gradient(circle at 90% 10%, rgba(0, 255, 102, 0.05), transparent 40%),
+                        radial-gradient(circle at 10% 90%, rgba(0, 210, 255, 0.05), transparent 40%);
+        }
+
+        .hero__container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero__subtitle {
+            font-size: 1rem;
+            color: var(--first-color);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero__title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .hero__description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+        }
+
+        /* Botones Profesionales */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
+            font-family: monospace;
+        }
+
+        .btn--primary {
+            background-color: transparent;
+            color: var(--first-color);
+            border: 1px solid var(--first-color);
+        }
+
+        .btn--primary:hover {
+            background-color: rgba(0, 255, 102, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+        }
+
+        .btn--secondary {
+            background-color: transparent;
+            color: var(--second-color);
+            border: 1px solid var(--second-color);
+        }
+
+        .btn--secondary:hover {
+            background-color: rgba(0, 210, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+
+        /* Terminal Interactiva Simulada */
+        .terminal {
+            background-color: #070a12;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .terminal__header {
+            background-color: #101622;
+            padding: 0.75rem;
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .terminal__dot {
+            width: 100%;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .terminal__body {
+            padding: 1.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .terminal__line {
+            margin-bottom: 0.5rem;
+        }
+
+        .terminal__line span {
+            color: var(--first-color);
+        }
+
+        /* Sección de Habilidades / Enfoque */
+        .skills__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .card__icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .card__icon--dev { color: var(--second-color); }
+        .card__icon--cyber { color: var(--first-color); }
+
+        .card__title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .card__list {
+            margin-top: 1.5rem;
+        }
+
+        .card__list li {
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card__list li::before {
+            content: "▹";
+            color: var(--first-color);
+        }
+
+        /* Portafolio de Proyectos */
+        .portfolio__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card__content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-card__tag {
+            font-family: monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card__tag--cyber { color: var(--first-color); }
+        .project-card__tag--dev { color: var(--second-color); }
+
+        .project-card__title {
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card__description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #fff;
+            transition: var(--transition);
+        }
+
+        .project-card__link:hover {
+            color: var(--first-color);
+        }
+
+        /* Footer / Contacto */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 0 2rem 0;
+            background-color: #070a12;
+            text-align: center;
+        }
+
+        .footer__title {
+            font-size: 1.75rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .footer__description {
+            color: var(--text-muted);
+            max-width: 400px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .footer__socials {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer__social-link {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .footer__social-link:hover {
+            color: var(--first-color);
+            transform: translateY(-3px);
+        }
+
+        .footer__copy {
+            font-size: 0.8rem;
+            color: #475569;
+            font-family: monospace;
+        }
+
+        /* Responsividad para pantallas móviles */
+        @media (max-width: 768px) {
+            .hero__container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 2rem;
+            }
+            .hero__title { font-size: 2.5rem; }
+            .hero__description { margin-inline: auto; }
+            .btn-group { justify-content: center; }
+            .nav__list { display: none; } /* Simplificado para móviles */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav container">
+            <a href="#home" class="nav__logo">NICO<span>.guzok</span></a>
+            <ul class="nav__list">
+                <li><a href="#home" class="nav__link">Inicio</a></li>
+                <li><a href="#enfoque" class="nav__link">Enfoque</a></li>
+                <li><a href="#proyectos" class="nav__link">Portafolio</a></li>
+                <li><a href="#contacto" class="nav__link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section class="hero" id="home">
+            <div class="hero__container container">
+                <div class="hero__data">
+                    <p class="hero__subtitle tech-font">SYSTEM.INIT()</p>
+                    <h1 class="hero__title">Nico Guzmán</h1>
+                    <p class="hero__description">
+                        Desarrollador de software enfocado en la creación de soluciones eficientes y analista orientado a proteger activos digitales a través de la ciberseguridad.
+                    </p>
+                    <div class="btn-group">
+                        <a href="#proyectos" class="btn btn--primary"><i class="ri-terminal-box-line"></i> Ver Proyectos</a>
+                        <a href="#contacto" class="btn btn--secondary"><i class="ri-mail-send-line"></i> Contacto</a>
+                    </div>
+                </div>
+
+                <div class="terminal">
+                    <div class="terminal__header">
+                        <div class="terminal__dot" style="background-color: #ef4444;"></div>
+                        <div class="terminal__dot" style="background-color: #eab308;"></div>
+                        <div class="terminal__dot" style="background-color: #22c55e;"></div>
+                    </div>
+                    <div class="terminal__body tech-font">
+                        <div class="terminal__line"><span>$</span> cat info.txt</div>
+                        <div class="terminal__line" style="color: var(--text-muted);">Status: Buscando oportunidades</div>
+                        <div class="terminal__line"><span>$</span> nmap -sV nico.dev</div>
+                        <div class="terminal__line" style="color: var(--text-muted);">PORT STATE SERVICE</div>
+                        <div class="terminal__line" style="color: var(--text-muted);">80/tcp open http (Secure)</div>
+                        <div class="terminal__line"><span>$</span> <span id="typing" style="color: #fff;"></span></div>
+                    </div>
+                </div>
             </div>
-            <div class="nav__actions">
-               <i class="ri-moon-line change-theme" id="theme-button"></i>
-               <div class="nav__toggle" id="nav-toggle">
-                  <i class="ri-menu-line"></i>
-               </div>
+        </section>
+
+        <section class="section container" id="enfoque">
+            <h2 class="section__title">Especialización Técnica</h2>
+            <div class="skills__grid">
+                
+                <div class="card">
+                    <i class="ri-code-line card__icon card__icon--dev"></i>
+                    <h3 class="card__title">Desarrollo de Software</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Construcción de aplicaciones lógicas, optimizadas y con código limpio.</p>
+                    <ul class="card__list tech-font">
+                        <li>Frontend: HTML5, CSS3, JavaScript</li>
+                        <li>Backend: Python, Node.js</li>
+                        <li>Control de versiones: Git & GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <i class="ri-shield-keyhole-line card__icon card__icon--cyber"></i>
+                    <h3 class="card__title">Ciberseguridad</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Auditoría de sistemas y aplicación de buenas prácticas de defensa digital.</p>
+                    <ul class="card__list tech-font">
+                        <li>Análisis de OWASP Top 10</li>
+                        <li>Pentesting Web básico</li>
+                        <li>Hardening de sistemas Linux</li>
+                    </ul>
+                </div>
+
             </div>
-         </nav>
-         
-      </header>
-      <main class="main">
-         <section class="home section">
-            <div class="home__rectangle"></div>
-            <div class="home__container container grid">
-               <div class="home__perfil perfil">
-                  <div class="perfil__content">
-                     <img src="/assets/img/home-perfil.png" alt="imagen" class="perfil__img">
-                  </div>
-               </div>
-               <div class="home__content grid">
-                  <div class="home__data grid">
-                     <h1 class="home__name">Nico Guzman</h1>
-                     <h2 class="home__profession">Programador Full-Stack</h2>
-                     <div class="home__social">
-                        <a href="" target="_blank" class="home__social-link">
-                           <i class="ri-github-fill"></i>
-                        </a>
-                        <a href="" target="_blank" class="home__social-link">
-                           <i class="ri-linkedin-box-fill"></i>
-                        </a>
-                     </div>
-                  </div>
-                  <a href="" download="" class="home__button button">CV PDF</a>
-               </div>
+        </section>
+
+        <section class="section container" id="proyectos">
+            <h2 class="section__title">Proyectos Recientes</h2>
+            <div class="portfolio__grid">
+                
+                <article class="project-card">
+                    <div class="project-card__content">
+                        <span class="project-card__tag project-card__tag--cyber">Ciberseguridad</span>
+                        <h3 class="project-card__title">Escáner de Puertos Automatizado</h3>
+                        <p class="project-card__description">Script desarrollado en Python para auditar la seguridad perimetral de servidores locales de manera rápida.</p>
+                        <a href="https://github.com/Nicoguzok" target="_blank" class="project-card__link">Explorar código <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-card__content">
+                        <span class="project-card__tag project-card__tag--dev">Desarrollo Web</span>
+                        <h3 class="project-card__title">E-commerce con Filtros de Inyección</h3>
+                        <p class="project-card__description">Sitio web diseñado para contener defensas activas contra ataques tipo SQLi y Cross-Site Scripting (XSS).</p>
+                        <a href="https://github.com/Nicoguzok" target="_blank" class="project-card__link">Explorar código <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-card__content">
+                        <span class="project-card__tag project-card__tag--dev">Diseño Frontend</span>
+                        <h3 class="project-card__title">Plataforma Web para Eventos</h3>
+                        <p class="project-card__description">Interfaz interactiva completamente responsiva adaptada a las necesidades modernas de experiencia de usuario.</p>
+                        <a href="https://github.com/Nicoguzok" target="_blank" class="project-card__link">Explorar código <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </article>
+
             </div>
-         </section>
-         <section class="services section">
-            <h2 class="section__title">Los Servicios que Ofrezco</h2>
-            <div class="services__container container grid">
-               <article class="services__card">
-                  <i class="ri-code-s-slash-line services__icon"></i>
-                  <h2 class="services__title">Web Developer</h2>
-                  <p class="services__description">
-                     Disenios elegantes y responsive, con interfaces creativa e intuitiva para el usuario.
-                  </p>
-                  <button class="services__button button">+ Info</button>
-                  <div class="services__modal">
-                     <div class="services__modal-content">
-                        <i class="ri-close-line services__modal-close"></i>
-                        <h2 class="services__modal-title">Web Developer</h2>
-                        <ul class="services__modal-list grid">
-                           <li class="services__modal-item">Crear Web Personal a pedido del cliente y sus expesificaciones</li>
-                           <li class="services__modal-item">Diseniar prototipos de web</li>
-                           <li class="services__modal-item">Posicionar tu Web con los avances SEO</li>
-                           <li class="services__modal-item">Resolver problemas que tenga su pagina Web</li>
-                        </ul>
-                     </div>
-                  </div>
-               </article>
-               <article class="services__card">
-                  <i class="ri-pen-nib-line services__icon"></i>
-                  <h2 class="services__title">Diseniador Web</h2>
-                  <p class="services__description">
-                     Disenios elegantes y responsive, con interfaces creativa e intuitiva para el usuario.
-                  </p>
-                  <button class="services__button button">+ Info</button>
-                  <div class="services__modal">
-                     <div class="services__modal-content">
-                        <i class="ri-close-line services__modal-close"></i>
-                        <h2 class="services__modal-title">Diseniador Web</h2>
-                        <ul class="services__modal-list grid">
-                           <li class="services__modal-item">Crear Web Personal a pedido del cliente y sus expesificaciones</li>
-                           <li class="services__modal-item">Diseniar prototipos de web</li>
-                           <li class="services__modal-item">Posicionar tu Web con los avances SEO</li>
-                           <li class="services__modal-item">Resolver problemas que tenga su pagina Web</li>
-                        </ul>
-                     </div>
-                  </div>
-               </article>
-               <article class="services__card">
-                  <i class="ri-layout-2-line services__icon"></i>
-                  <h2 class="services__title">Interfas de Usuario</h2>
-                  <p class="services__description">
-                     Disenios elegantes y responsive, con interfaces creativa e intuitiva para el usuario.
-                  </p>
-                  <button class="services__button button">+ Info</button>
-                  <div class="services__modal">
-                     <div class="services__modal-content">
-                        <i class="ri-close-line services__modal-close"></i>
-                        <h2 class="services__modal-title">Interfaces de Usuario</h2>
-                        <ul class="services__modal-list grid">
-                           <li class="services__modal-item">Crear Web Personal a pedido del cliente y sus expesificaciones</li>
-                           <li class="services__modal-item">Diseniar prototipos de web</li>
-                           <li class="services__modal-item">Posicionar tu Web con los avances SEO</li>
-                           <li class="services__modal-item">Resolver problemas que tenga su pagina Web</li>
-                        </ul>
-                     </div>
-                  </div>
-               </article>
+        </section>
+
+    </main>
+
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <h2 class="footer__title">¿Listo para auditar o desarrollar?</h2>
+            <p class="footer__description">Estoy disponible para proyectos de desarrollo de software y análisis de seguridad informática.</p>
+            
+            <div class="footer__socials">
+                <a href="https://www.linkedin.com/in/nico-guzman/" target="_blank" class="footer__social-link"><i class="ri-linkedin-box-fill"></i></a>
+                <a href="https://github.com/Nicoguzok" target="_blank" class="footer__social-link"><i class="ri-github-fill"></i></a>
+                <a href="mailto:tu-correo@ejemplo.com" class="footer__social-link"><i class="ri-mail-line"></i></a>
             </div>
-         </section>
-         <section class="work section">
-            <h2 class="section__title">Mi Mas <br>Recientes Trabajos</h2>
-            <div class="work__container container grid">
-               <article class="work__card">
-                  <a href="https://miwebdeboda.github.io" class="work__link" target="_blank">
-                     <img src="assets/img/work-1.png" alt="image" class="work__img">
-                     <i class="ri-arrow-right-circle-line work__icon"></i>
-                  </a>
-                  <h2 class="work__title">Pagina Web de Bodas</h2>
-                  <span class="work__subtitle">Disenio Web</span>
-               </article>
-               <article class="work__card">
-                  <a href="#" class="work__link">
-                     <img src="assets/img/work-2.png" alt="image" class="work__img">
-                     <i class="ri-arrow-right-circle-line work__icon"></i>
-                  </a>
-                  <h2 class="work__title">Pagina Web de Imprenta Grafica</h2>
-                  <span class="work__subtitle">Disenio Web - EN PROSESO</span>
-               </article>
-            </div>
-         </section>
-         <section class="testimonial section">
-            <h2 class="section__title">Opiniones de mis Trabajos</h2>
-            <div class="testimonial__container container">
-               <div class="testimonial__swiper swiper">
-                  <div class="swiper-wrapper">
-                     <article class="testimonial__card swiper-slide">
-                        <div class="testimonial__border">
-                           <img src="assets/img/testimonial-1.png" alt="image" class="testimonial__img">
-                        </div>
-                        <h2 class="testimonial__name">Meli Salguero</h2>
-                        <p class="testimonial__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda sapiente officiis nesciunt facilis! Quam maiores eum, autem sit cumque suscipit ea eius, iusto eaque quibusdam tempora? Praesentium assumenda placeat cumque.</p>
-                     </article>
-                     <article class="testimonial__card swiper-slide">
-                        <div class="testimonial__border">
-                           <img src="assets/img/testimonial-1.png" alt="image" class="testimonial__img">
-                        </div>
-                        <h2 class="testimonial__name">Meli Salguero</h2>
-                        <p class="testimonial__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda sapiente officiis nesciunt facilis! Quam maiores eum, autem sit cumque suscipit ea eius, iusto eaque quibusdam tempora? Praesentium assumenda placeat cumque.</p>
-                     </article>
-                  </div>
-               </div>
-               <div class="swiper-pagination"></div>
-            </div>
-         </section>
-         <section class="contact section">
-            <div class="contact__container container grid">
-               <h2 class="section__title">Cuentame de tus proyectos</h2>
-               <a href="contact.html" class="contact__button button">Contactame</a>
-            </div>
-         </section>
-      </main>
-      <footer class="footer">
-         <div class="footer__container container grid">
-            <div class="footer__content grid">
-               <a href="index.html" class="footer__logo">Nico</a>
-               <ul class="footer__links">
-                  <li>
-                     <a href="about.html" class="footer__link">Info</a>
-                  </li>
-                  <li>
-                     <a href="work.html" class="footer__link">Portafolio</a>
-                  </li>
-                  <li>
-                     <a href="contact.html" class="footer__link">Contacto</a>
-                  </li>
-               </ul>
-               <div class="footer__social">
-                  <a href="" target="_blank" class="footer__social-link">
-                     <i class="ri-instagram-fill"></i>
-                  </a>
-                  <a href="https://www.linkedin.com/in/nico-guzman/" target="_blank" class="footer__social-link">
-                     <i class="ri-linkedin-box-fill"></i>
-                  </a>
-               </div>
-            </div>
-            <span class="footer__copy">
-               &#169; Todos los derechos reservados por Sani Tecnology
-            </span>
-         </div>
-      </footer>
-      <a href="#" class="scrollup" id="scroll-up">
-         <i class="ri-arrow-up-line"></i>
-      </a>
-      <script src="assets/js/main.js"></script>
-      <script src="assets/js/swiper-bundle.min.js"></script>
-      <script src="assets/js/index.js"></script>
-   </body>
+
+            <p class="footer__copy">&#169; 2026 Nico Guzmán. Build Secured.</p>
+        </div>
+    </footer>
+
+    <script>
+        const words = ["echo '¡Bienvenido!';", "ready_"];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typing').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 150);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typing').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 100);
+            };
+            loopDeleting();
+        }
+
+        document.addEventListener("DOMContentLoaded", typingEffect);
+    </script>
+</body>
 </html>
